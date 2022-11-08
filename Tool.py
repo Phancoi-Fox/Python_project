@@ -16,7 +16,6 @@ def fivex_delay(c):
 
 while True:
     token = input("Enter token: ")
-    #token = 'TDS9JSOyVmdlNnI6IiclZXZzJCLiUjNzI0TZhmZiojIyV2c1Jye'
     getprofile = requests.get('https://traodoisub.com/api/?fields=profile&access_token='+token).json()
     if 'success' in getprofile:
         user_id = getprofile['data']['user']
@@ -34,7 +33,6 @@ while True:
 while True:
 
     uid = int(input("Enter ID nick to run: "))
-    #uid = '7097797386085499905'
     config = requests.get('https://traodoisub.com/api/?fields=tiktok_run&id='+ str(uid) + '&access_token='+ token).json()
     if 'success' in config:
         account = config['data']['uniqueID']
@@ -54,10 +52,7 @@ while True:
         break
     else: 
         print("Enter type of job again!")
-
-
 delay = int(input("Time to delay: "))
-
 while True:
     stop = int(input("Enter the number of task ( >= 10): "))
     if stop >= 10:
