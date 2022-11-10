@@ -5,6 +5,8 @@ while True:
     if 0 <= n <= 20:
         break
 
+from abc import ABCMeta, abstractclassmethod
+
 class Shape:
     __metaclass__ = ABCMeta
     def __init__(self, shapeType):
@@ -35,11 +37,11 @@ class Circle(Shape):
         return round(Circle.pi * (self. radius ** 2), 2)
     def perimeter(self):
         return round(2 * Circle.pi * self. radius, 2)
-
 lst = []
 lst_primeter = []
 lst_circles = []
 lst_rectangles = []
+lst_print = []
 
 for i in range(1, n + 1):
     display = input(str(i) + " ")
@@ -55,13 +57,9 @@ for i in range(1, n + 1):
         display2 = display.split()
         circle = Circle(radius = int(display2[-1]))
         lst.append(circle.area())
-        lst_primeter.append(circle.perimeter())    
+        lst_primeter.append(circle.perimeter())
         
-for j in lst:
-    print(j)
-for m in lst_primeter:
-    print(m)
-
+        
 q = int(input())
 
 for c in range(1, q + 1):
@@ -73,7 +71,7 @@ for c in range(1, q + 1):
         else:
             for k in range(len(lst) + 1):
                 if k == int(cmd1[-1]):
-                    print(lst[k - 1])
+                    lst_print.append(lst[k-1])
                 else: continue
     elif "display Diameter" in cmd:
         if int(cmd1[-1]) > n:
@@ -81,15 +79,13 @@ for c in range(1, q + 1):
         else:
             for h in range(len(lst_primeter) + 1):
                 if h == int(cmd1[-1]):
-                    print(lst_primeter[k - 1])
+                    lst_print.append(lst_primeter[h-1])
                 else: continue
     elif "listAll Circle" in cmd:
         for a in lst_circles:
-            print(a)
+            lst_print.append(a)
     elif "listAll Rectangle" in cmd:
         for b in lst_rectangles:
-            print(b)
-                    
-        
-        
-    
+            lst_print.append(b)
+for d in lst_print:
+    print(d)                 
