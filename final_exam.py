@@ -5,8 +5,6 @@ while True:
     if 0 <= n <= 20:
         break
 
-from abc import ABCMeta, abstractclassmethod
-
 class Shape:
     __metaclass__ = ABCMeta
     def __init__(self, shapeType):
@@ -37,6 +35,7 @@ class Circle(Shape):
         return round(Circle.pi * (self. radius ** 2), 2)
     def perimeter(self):
         return round(2 * Circle.pi * self. radius, 2)
+
 lst = []
 lst_primeter = []
 lst_circles = []
@@ -56,9 +55,7 @@ for i in range(1, n + 1):
         display2 = display.split()
         circle = Circle(radius = int(display2[-1]))
         lst.append(circle.area())
-        lst_primeter.append(circle.perimeter())
-        
-        
+        lst_primeter.append(circle.perimeter())    
         
 for j in lst:
     print(j)
