@@ -4,9 +4,7 @@ while True:
     n = int(input())
     if 0 <= n <= 20:
         break
-
-from abc import ABCMeta, abstractclassmethod
-
+        
 class Shape:
     __metaclass__ = ABCMeta
     def __init__(self, shapeType):
