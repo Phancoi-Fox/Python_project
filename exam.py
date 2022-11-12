@@ -97,8 +97,10 @@ for i in range(1, n + 1):
         lst_primeter.append(circle.perimeter())
         
     if "Delta" in display:
-        lst_delta.append(display)
         display3 = display.split()
+        if display3 == 3 or display3 == 4:
+            lst_delta.append(display)
+        else: break
         if len(display3) == 4:
             delta = Delta1(ra = int(display3[-3]), rb = int(display3[-2]), rc = int(display3[-1]))
             lst_primeter.append(delta.perimeter())
@@ -106,14 +108,16 @@ for i in range(1, n + 1):
             delta1 = Delta(height = int(display3[-1]), area1 = int(display3[-2]))
             lst.append(delta1.area())
     if "Trape" in display:
-        lst_trape.append(display)
         display4 = display.split()
+        if display4 == 5 or display4 == 4:
+            lst_trape.append(display)
+        else: break
         if len(display4) == 5:
             trape = Trape1(rat = int(display4[-1]), rbt = int(display4[-2]), rct = int(display4[-3]), rdt = int(display4[-4]))
             lst_primeter.append(trape.perimeter())
         if len(display4) == 4:
             trape1 = Trape(leng = int(display4[-1]), small = int(display4[-2]), large = int(display4[-3]))
-            lst.append(trape1.area())    
+            lst.append(trape1.area())         
         
 q = int(input())
 
