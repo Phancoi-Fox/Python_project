@@ -82,19 +82,22 @@ lst_print = []
 
 for i in range(1, n + 1):
     display = input(str(i) + " ")
-    if "Rectangle" in display: 
-        lst_rectangles.append(display)
+    if "Rectangle" in display:
         display1 = display.split()
-        rectangle = Rectangle(length = int(display1[-2]), breadth = int(display1[-1]))
-        lst.append(rectangle.area())
-        lst_primeter.append(rectangle.perimeter())
-        
+        if len(display1) == 3:     
+            lst_rectangles.append(display)
+            rectangle = Rectangle(length = int(display1[-2]), breadth = int(display1[-1]))
+            lst.append(rectangle.area())
+            lst_primeter.append(rectangle.perimeter())
+        else: break
     if "Circle" in display:
-        lst_circles.append(display)
         display2 = display.split()
-        circle = Circle(radius = int(display2[-1]))
-        lst.append(circle.area())
-        lst_primeter.append(circle.perimeter())
+        if len(display2) == 2:
+            lst_circles.append(display)
+            circle = Circle(radius = int(display2[-1]))
+            lst.append(circle.area())
+            lst_primeter.append(circle.perimeter())
+        else: break
         
     if "Delta" in display:
         display3 = display.split()
@@ -140,6 +143,7 @@ for c in range(1, q + 1):
                 if h == int(cmd1[-1]):
                     lst_print.append(lst_primeter[h-1])
                 else: continue
+                    
     elif "listAll Circle" in cmd:
         for a in lst_circles:
             lst_print.append(a)
