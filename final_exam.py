@@ -4,7 +4,9 @@ while True:
     n = int(input())
     if 0 <= n <= 20:
         break
-        
+
+from abc import ABCMeta, abstractclassmethod
+
 class Shape:
     __metaclass__ = ABCMeta
     def __init__(self, shapeType):
@@ -35,6 +37,8 @@ class Circle(Shape):
         return round(Circle.pi * (self. radius ** 2), 2)
     def perimeter(self):
         return round(2 * Circle.pi * self. radius, 2)
+
+
 lst = []
 lst_primeter = []
 lst_circles = []
@@ -43,19 +47,22 @@ lst_print = []
 
 for i in range(1, n + 1):
     display = input(str(i) + " ")
-    if "Rectangle" in display: 
-        lst_rectangles.append(display)
+    if "Rectangle" in display:
         display1 = display.split()
-        rectangle = Rectangle(length = int(display1[-2]), breadth = int(display1[-1]))
-        lst.append(rectangle.area())
-        lst_primeter.append(rectangle.perimeter())
-        
+        if len(display1) == 3:     
+            lst_rectangles.append(display)
+            rectangle = Rectangle(length = int(display1[-2]), breadth = int(display1[-1]))
+            lst.append(rectangle.area())
+            lst_primeter.append(rectangle.perimeter())
+        else: break
     if "Circle" in display:
-        lst_circles.append(display)
         display2 = display.split()
-        circle = Circle(radius = int(display2[-1]))
-        lst.append(circle.area())
-        lst_primeter.append(circle.perimeter())
+        if len(display2) == 2:
+            lst_circles.append(display)
+            circle = Circle(radius = int(display2[-1]))
+            lst.append(circle.area())
+            lst_primeter.append(circle.perimeter())
+        else: break
         
         
 q = int(input())
