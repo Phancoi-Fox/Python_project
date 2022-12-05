@@ -101,7 +101,7 @@ for i in range(1, n + 1):
         
     if "Delta" in display:
         display3 = display.split()
-        if display3 == 3 or display3 == 4:
+        if len(display3) == 3 or len(display3) == 4:
             lst_delta.append(display)
         else: break
         if len(display3) == 4:
@@ -112,7 +112,7 @@ for i in range(1, n + 1):
             lst.append(delta1.area())
     if "Trape" in display:
         display4 = display.split()
-        if display4 == 5 or display4 == 4:
+        if len(display4) == 5 or len(display4) == 4:
             lst_trape.append(display)
         else: break
         if len(display4) == 5:
@@ -143,7 +143,6 @@ for c in range(1, q + 1):
                 if h == int(cmd1[-1]):
                     lst_print.append(lst_primeter[h-1])
                 else: continue
-                    
     elif "listAll Circle" in cmd:
         for a in lst_circles:
             lst_print.append(a)
